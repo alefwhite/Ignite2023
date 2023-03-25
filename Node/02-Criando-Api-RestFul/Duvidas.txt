@@ -6,8 +6,7 @@
 
 4 - Instalmos o tsx que é um biblioteca que vai nos auxiliar com o typescript na de executarmos nossos códigos -> npm i tsx -D
    Ex: "scripts": {
-            "dev": "tsx watch src/server.ts",
-   
+            "dev": "tsx watch src/server.ts"   
         }
 
 5 - Configurando o eslint
@@ -19,8 +18,39 @@
         },
     4 - Agora em nosso package.json iremos criar um script para o lint
         "lint": "eslint src --ext .ts --fix"
-
+    5 - Caso estiver no windows utilizar o editorconfig e mudar a opçãp end_of_line para lf
 
 6 - Configurando o banco de dados
     1 - npm install knex sqlite3
     2 - npm install @types/knex -D
+    3 - Devemos criar um arquivo database.ts e incluir as configurações do banco que iremos utilizar
+        export const config: Knex.Config = {
+            client: 'sqlite3',
+            connection: {
+                filename: './db/app.db',
+            },
+            useNullAsDefault: true,
+            migrations: {
+                extension: 'ts',
+                directory: './db/migrations',
+            },
+        }
+
+        export const knex = setupKnex(config)
+
+    4 - Na raiz do projeto temos que criar um arquivo knexfile.ts e importar a conexão definida em nosso arquivo database.ts
+    5 - No package.json devemos criar um script para o knex pois ele por padrão trabalha com js então devemos fazer algumas 
+        configurações para que ele funcione com o typescript
+            "knex": "node --no-warnings --loader tsx ./node_modules/.bin/knex"
+        Agora para testarmos se está funcionando devemos executar -> npm run knex -- -h
+
+
+7 - Criação de migrations com knex
+    1 - npm run knex -- migrate:make create-documents -> Cria a migration
+    2 - npm run knex -- migrate:latest - Executa a migration
+    3 - npm run knex -- migrate:rollback - Reverte a migration executada
+
+
+8 - Instalando o dotenv para trabalharmos com variaveis de ambiente => npm i dotenv
+
+9 - Instalado o zod para validar os dados da nosso aplicação inclusive o dotenv -> npm i zod
