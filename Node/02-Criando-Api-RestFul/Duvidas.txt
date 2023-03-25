@@ -1,0 +1,26 @@
+1 - Iniciamos o projeto com o comando -> npm init -y
+
+2 - Instalamos o typescript como dependencia de desenvolvimento -> npm i typescript @types/node -D 
+
+3 - Instalamos o fastify -> npm i fastify
+
+4 - Instalmos o tsx que é um biblioteca que vai nos auxiliar com o typescript na de executarmos nossos códigos -> npm i tsx -D
+   Ex: "scripts": {
+            "dev": "tsx watch src/server.ts",
+   
+        }
+
+5 - Configurando o eslint
+    1 - npm i eslint @rocketseat/eslint-config -D
+    2 - Devemos criar um arquivo .eslintrc.json na raiz do projeto
+    3 - Agora temos que entrar nas configurações do vscode e setar a config abaixo
+         "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+    4 - Agora em nosso package.json iremos criar um script para o lint
+        "lint": "eslint src --ext .ts --fix"
+
+
+6 - Configurando o banco de dados
+    1 - npm install knex sqlite3
+    2 - npm install @types/knex -D

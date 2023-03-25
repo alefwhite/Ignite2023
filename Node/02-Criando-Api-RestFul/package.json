@@ -1,0 +1,27 @@
+{
+  "name": "02-criando-api-restful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node server.js",
+    "lint": "eslint src --ext .ts --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
+    "@types/knex": "^0.16.1",
+    "@types/node": "^18.15.8",
+    "eslint": "^8.36.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "fastify": "^4.15.0",
+    "knex": "^2.4.2",
+    "sqlite3": "^5.1.6"
+  }
+}
