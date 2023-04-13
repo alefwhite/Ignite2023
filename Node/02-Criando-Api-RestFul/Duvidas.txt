@@ -54,3 +54,10 @@
 8 - Instalando o dotenv para trabalharmos com variaveis de ambiente => npm i dotenv
 
 9 - Instalado o zod para validar os dados da nosso aplicação inclusive o dotenv -> npm i zod
+
+10 - Adicionando tipagem no knex
+    1 - Devemos criar uma pasta chamada @type dentro de src
+
+
+11 - Para trabalharmos com cookies no fastify é recomendado instalarmos um pacote de cookies dele
+    1 - npm i @fastify/cookie
