@@ -5,11 +5,25 @@ import crypto from 'node:crypto'
 import { z } from 'zod'
 import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
 
+/** nvm
+ *  Unitários: unidade da sua aplicação
+ *  Integração: comunicação entre duas ou mais unidades
+ *  E2E: ponta a ponta: simulam um usuário operando na nossa aplicação *
+ */
+
+// front-end: abre a página de login, digite o teto alefwhite@gmail.com no com ID email, clique no botão
+//  back-end: chamadas HTTP: WebSockets
+
+// Pirâmide de testes: E2E (não dependem de nenhuma tecnologia,  não dependem de arquitetura)
+// 2000 testes -> Testes E2E => 16min
+
 export async function transactionRoutes(app: FastifyInstance) {
   // app.addHook('preHandler', checkSessionIdExists) // middleware para todas as rotas dentro desse contexto transactionRoutes
 
   app.get('/', { preHandler: [checkSessionIdExists] }, async (request) => {
-    const { sessionId } = request.cookies
+    const newObj = structuredClone(request.cookies)
+
+    const { sessionId } = newObj
 
     const transactions = await knex('transactions')
       .select()

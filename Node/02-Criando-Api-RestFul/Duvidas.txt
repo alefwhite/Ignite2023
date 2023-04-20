@@ -61,3 +61,11 @@
 
 11 - Para trabalharmos com cookies no fastify é recomendado instalarmos um pacote de cookies dele
     1 - npm i @fastify/cookie
+
+12 - Iniciando Módulo de Testes utilizando o vitest
+    1 - npm i vitest -D
+    2 - Devemos criar uma pasta chamada test com um arquivo chamado example.spec.ts na raiz do projeto
+    3 - Após escrevermos um teste em nosso arquivo podemos executa-lo com -> npx vitest para exec
+    4 - (a) executa os testes novamente no terminal
+    5 - Podemos criar um script no package.json  "teste": "vitest"
+    6 - Instalado o supertest - npm i supertest -D | npm i @types/supertest -D
