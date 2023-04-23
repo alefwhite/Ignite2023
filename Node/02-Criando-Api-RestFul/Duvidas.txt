@@ -69,3 +69,22 @@
     4 - (a) executa os testes novamente no terminal
     5 - Podemos criar um script no package.json  "teste": "vitest"
     6 - Instalado o supertest - npm i supertest -D | npm i @types/supertest -D
+
+13 - Iniciando Módulo de deploy
+    1 - Adicionando uma biblioteca que irá nos ajustar a compilar nosso código de ts para js mais rápido - npm i tsup -D
+    2 - Agora podemos incluir o script de build em nosso package.json - "build": "tsup src" - "build": "tsup --out-dir build",
+    3 - Criando o arquivo .eslintignore na raiz do projeto para ele na faça o lint nos arquivos gerados no build
+        node_modules
+        build
+    4 - Subindo o repositório para o github via GitHub CLI
+        1 - git init - git add . - git commit -m "msg"
+        2 - gh auth
+        3 - gh repo create -> Opção: Push an existing local repository GitHub
+        4 - .
+        5 - nome_do_repositório
+        6 - description
+        7 - private
+        8 - Y
+        9 - origin
+        10 - Y
+        11 - gh repo view -w

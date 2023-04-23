@@ -1,6 +1,12 @@
-import 'dotenv/config'
+import { config } from 'dotenv'
 
 import { z } from 'zod'
+
+if (process.env.NODE_ENV === 'test') {
+  config({ path: '.env.test' })
+} else {
+  config({ path: '.env' })
+}
 
 // Joi, Yup e Zod para validações
 

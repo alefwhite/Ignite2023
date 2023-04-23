@@ -5,4 +5,4 @@ app
   .listen({
     port: env.PORT,
   })
-  .then((_) => console.log('HTTP SERVER REUNNING PORT: 3333'))
+  .then((_) => console.log('SERVIDOR RODANDO NA PORTA: 3333'))
