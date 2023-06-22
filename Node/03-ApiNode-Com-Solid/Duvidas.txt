@@ -1,0 +1,32 @@
+# Info
+
+1: Instalação das bibliotecas inicias para rodar a aplicação
+    npm i typescript @types/node tsx tsup -D
+
+2: Criação do arquivo de configuração do typescript
+    npx tsc --init
+
+3: Setando algumas configurações no tsconfig
+    "target": "es2020"
+
+4: Instalando o framework de servidor fastify
+    npm i fastify
+
+5: Script de inicialização da aplicação para desenvolvimento
+    "scripts": {
+        "start:dev": "tsx watch src/server.ts"
+    }
+
+6: Script para gerar o build da aplicação
+    "scripts": {
+        "build": "tsup src --out-dir build"
+    }
+
+7: Script para start a aplicação no ambiente de produção
+    "scripts": {
+        "start": "node build/server.js",
+    }
+
+8: Usando versões exatas do npm
+    Devemos criar um arquivo na raiz com o nome de .npmrc
+    Depois incluir -> save-exact=true
