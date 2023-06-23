@@ -30,3 +30,12 @@
 8: Usando versões exatas do npm
     Devemos criar um arquivo na raiz com o nome de .npmrc
     Depois incluir -> save-exact=true
+
+9: Instalação da biblioteca para trabalharmos com variáveis de ambiente
+    npm i dotenv
+
+10: Instalação da biblioteca zod para validação dos dados
+    npm i zod
+
+11: Instalação e Configuração do eslint
+    npm i eslint @rocketseat/eslint-config -D
