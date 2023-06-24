@@ -39,3 +39,37 @@
 
 11: Instalação e Configuração do eslint
     npm i eslint @rocketseat/eslint-config -D
+
+12: Criando aliases de importação no arquivo tsconfig
+     "baseUrl": "./",
+     "paths": {
+       "@/*": ["./src/*"]
+     },
+
+13: Instalação e configuração do prisma orm de banco de dados
+    npm i prisma -D
+    npx prisma -h - Lista os comandos do prisma
+    npx prisma init - Após a instalação podemos definir nossa primeira model
+    npx prisma generate - Cria a tipagem do typescript por baixo dos panos
+    npm i @prisma/client - Dependência de produção do prisma para acessar o banco de dados
+    npx prisma migrate dev - Executa um schema que ainda não foi executado e cria sua migration
+
+
+14: Criação do docker-compose para subir o banco de dados postgres
+    Na raiz do projeto devemos criar um arquivo chamado docker-compose.yml e colocar a informações abaixo
+        version: '3'
+
+        services:
+          api-solid-pg:
+            image: bitnami/postgresql
+            ports:
+              - "5432:5432"
+            environment:
+              - POSTGRESQL_USERNAME=docker
+              - POSTGRESQL_PASSWORD=docker
+              - POSTGRESQL_DATABASE=apisolid
+
+
+    docker compose up -d   -> Executa o docker compose
+    docker compose stop    -> Para o container sem deletar
+    docker compose down    -> Deleta todos os containers
