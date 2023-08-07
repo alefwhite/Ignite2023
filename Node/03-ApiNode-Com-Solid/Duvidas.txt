@@ -73,3 +73,29 @@
     docker compose up -d   -> Executa o docker compose
     docker compose stop    -> Para o container sem deletar
     docker compose down    -> Deleta todos os containers
+
+15: Instalação da biblioteca mais utilizada com node para fazer hash de senhas
+    npm install bcryptjs
+    npm install @types/bcryptjs -D
+
+
+16: SOLID - 5 principals
+
+    // D - Dependency Inversion Principle
+
+
+
+17: Configurando o VITEST
+    npm i vitest vite-tsconfig-paths -D
+
+    1.1 - Após a instalação devemos criar um arquivo na raiz chamado vite.config.ts e incluir a config abaixo
+        import { defineConfig } from 'vitest/config';
+        import tsConfigPaths from 'vite-tsconfig-paths';
+        export default defineConfig({
+            plugins: [tsConfigPaths()]
+        });
+
+    1.2 - Agora em nosso package.json devemos criar o script abaixo
+        "test": "vitest run",
+        "test:watch": "vitest",
+
