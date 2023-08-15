@@ -98,4 +98,10 @@
     1.2 - Agora em nosso package.json devemos criar o script abaixo
         "test": "vitest run",
         "test:watch": "vitest",
+        "test:coverage": "vitest --coverage",
 
+    1.3 - Adicionando UI do vitest
+        npm i -D @vitest/ui
+        "test:ui": "vitest --ui"
+
+    4.2 - 4 min
