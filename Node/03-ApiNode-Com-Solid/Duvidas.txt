@@ -105,3 +105,14 @@
         "test:ui": "vitest --ui"
 
     4.2 - 4 min
+
+18 - TDD & Mocking
+
+    1 - Casos de Uso de usuário, perfil e autenticação começamos primeiro pela implementação dos casos de uso e depois
+        realizamos os teste unitários.
+
+    2 - Conforme dito em aula podemos utilizar o TDD para casos de uso que a regra de negócio é mais complexa então
+        devemos começar pelos testes e ir implementado os códigos conforme a necessidade
+
+19 - Adicionando a biblioteca dayjs para nos ajudarmos nas validações de data
+
