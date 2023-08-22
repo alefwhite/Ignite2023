@@ -1,6 +1,13 @@
 import { prisma } from '@/lib/prisma';
 import { Prisma, User } from '@prisma/client';
-import { IUsersRepository } from '@/repositories/contracts/users-repository';
+
+export interface IUsersRepository {
+  findById(id: string): Promise<User | null>;
+
+  findByEmail(email: string): Promise<User | null>;
+
+  create(data: Prisma.UserCreateInput): Promise<User>;
+}
 
 export class UsersRepository implements IUsersRepository {
   findById(id: string): Promise<User | null> {
