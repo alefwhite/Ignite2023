@@ -126,7 +126,7 @@
 
      4 - Back-end - Quando vai criar o token ele usa uma PALAVRA-CHAVE (string)
 
-     5 - Palavra-chave: adaiuhdaudhaiudhuaihdiuahdiuah
+     5 - Palavra-chave: batata
 
      6 - E-mail/senha -> header.payload.sign
 
@@ -139,3 +139,43 @@
 
      npm i @fastify/jwt
 
+21 - Configurando Test Environment
+
+     1 - Dentro da pasta primas devemos criar uma pasta chamada vitest-environment-prisma
+
+     2 - Depois devemos navegar até ela pelo terminal e dar um npm init -y
+
+     3 - Depois devemos criar um arquivo chamado prisma-test-environment e incluir esse arquivo no main
+         do "package.json" "main": "prisma-test-environment.ts" e incluir o código abaixo
+         import { Environment } from 'vitest';
+
+         // @ts-ignore
+         export default <Environment>{
+           name: 'prisma',
+           async setup() {
+             let count = 0;
+
+             console.log('Executou ' + count++);
+
+             return {
+               teardown() {},
+             };
+           },
+         };
+
+     4 - Depois no arquivo vite.config.ts incluir a configuração abaixo
+        test: {
+            environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
+        }
+
+     5 - Agora devemos navegar pelo terminal até a pasta vitest-environment-prisma e executar npm link
+         Isso faz como se fosse um repositório local na máquina
+
+     6 - Agora podemos instalar globalmente vitest-environment-prisma como um pacote da aplicação
+         npm link vitest-environment-prisma
+         npm run test
+
+         Se apresentar um erro devemos instalar a versão utilizada na aula e excluir a node_modules e instalar novamente
+         as dependências
+
+         npm i vitest@0.33.0 -D
