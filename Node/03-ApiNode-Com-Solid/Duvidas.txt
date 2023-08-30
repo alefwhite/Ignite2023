@@ -179,3 +179,15 @@
          as dependências
 
          npm i vitest@0.33.0 -D
+
+
+    22 - Organizando NPM scripts
+         npm i -D npm-run-all
+
+         "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
+         "test:install-prisma-environment": "npm link vitest-environment-prisma",
+         "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
+
+    23 - Adicionando a biblioteca supertest para nos auxiliar nos testes E2E
+         npm i supertest @types/supertest -D
+
