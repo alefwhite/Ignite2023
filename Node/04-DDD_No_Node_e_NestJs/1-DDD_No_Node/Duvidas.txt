@@ -1,8 +1,16 @@
+https://efficient-sloth-d85.notion.site/Gloss-rio-DDD-3a81b4df36d348a299ccbc53f38a1665
+
 1 - Iniciando o projeto
     npm init -y
 
 2 - Adicionando typescript e sua tipagem para os módulos nativos do node
     npm i typescript @types/node -D
+
+     Adicionando aliases para importação de arquivos
+     "baseUrl": "./",
+     "paths": {
+       "@/*": ["./src/*"]
+     },
 
 3 - Criando arquivo de configuração do typescript
     npx tsc --init
@@ -17,3 +25,10 @@
 
 5 - Instalando o vitest biblioteca para testes
     npm i vitest -D
+    npm i vite-tsconfig-paths -D
+
+    1 - Criar o arquivo vite.config.ts
+
+    2 - No tsconfig incluir na propriedade types
+        Importa de forma global os métodos do vitest sem a necessidade de importar em cada arquivo de teste
+        "types": ["vitest/globals"]

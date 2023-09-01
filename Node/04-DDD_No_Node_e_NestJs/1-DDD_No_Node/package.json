@@ -1,7 +1,21 @@
 {
+  "name": "clean-ddd",
+  "version": "1.0.0",
+  "description": "Design dirigido á domínio",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.5.7",
     "typescript": "^5.2.2",
+    "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.34.3"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.9"
   }
 }
