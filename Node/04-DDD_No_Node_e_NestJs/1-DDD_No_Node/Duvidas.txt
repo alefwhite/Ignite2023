@@ -1,0 +1,19 @@
+1 - Iniciando o projeto
+    npm init -y
+
+2 - Adicionando typescript e sua tipagem para os módulos nativos do node
+    npm i typescript @types/node -D
+
+3 - Criando arquivo de configuração do typescript
+    npx tsc --init
+
+4 - Iniciando o DDD
+     1 - Criar uma pasta src
+     2 - Criar pasta domain
+     3 - Criar pasta entities
+     4 - Criar pasta use-cases
+
+
+
+5 - Instalando o vitest biblioteca para testes
+    npm i vitest -D
