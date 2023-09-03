@@ -1,4 +1,4 @@
-import { QuestionRepository } from '@/domain/forum/application/repositories/question-repository';
+import { QuestionsRepository } from '@/domain/forum/application/repositories/questions-repository';
 import { Question } from '@/domain/forum/enterprise/entities/question';
 import { UniqueEntityID } from '@/core/entities/unique-entity-id';
 
@@ -13,7 +13,7 @@ interface CreateQuestionUseCaseResponse {
 }
 
 export class CreateQuestionUseCase {
-  constructor(private questionRepository: QuestionRepository) {}
+  constructor(private questionRepository: QuestionsRepository) {}
   async execute({
     authorId,
     title,
