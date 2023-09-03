@@ -3,7 +3,9 @@ import { AnswersRepository } from '@/domain/forum/application/repositories/answe
 import { Answer } from '@/domain/forum/enterprise/entities/answer';
 
 const fakeAnswersRepository: AnswersRepository = {
-  create: async (answer: Answer) => {},
+  create: async (answer: Answer) => {
+    console.log(answer);
+  },
 };
 test('Create an answer', async () => {
   const answerQuestion = new AnswerQuestionUseCase(fakeAnswersRepository);
