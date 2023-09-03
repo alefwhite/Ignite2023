@@ -32,3 +32,68 @@ https://efficient-sloth-d85.notion.site/Gloss-rio-DDD-3a81b4df36d348a299ccbc53f3
     2 - No tsconfig incluir na propriedade types
         Importa de forma global os métodos do vitest sem a necessidade de importar em cada arquivo de teste
         "types": ["vitest/globals"]
+
+
+6 - Adicionando o eslint
+    npm i eslint @rocketseat/eslint-config -D
+    npm i eslint-plugin-vitest-globals -D
+
+    1 - Temos que criar o arquivo .eslintrc.json na raiz do projeto e incluir a config abaixo
+
+    2 - Adicionando prettier
+        npm i prettier -D
+        npm i @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier -D
+
+        1 - Na raiz do projeto criar um arquivo -> .prettierrc e setar a config abaixo
+            {
+              "semi": true,
+              "singleQuote": true,
+              "arrowParens": "avoid"
+            }
+
+        2 - No arquivo .eslintrc.json incluir a config abaixo
+            {
+              "env": {
+                "es2021": true,
+                "node": true,
+                "vitest-globals/env": true
+              },
+              "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "prettier",
+                "plugin:vitest-globals/recommended"
+              ],
+              "parser": "@typescript-eslint/parser",
+              "parserOptions": {
+                "ecmaVersion": "latest",
+                "sourceType": "module"
+              },
+              "plugins": [
+                "@typescript-eslint"
+              ],
+              "rules": {
+                "linebreak-style": [
+                  "error",
+                  "unix"
+                ],
+                "quotes": [
+                  "error",
+                  "single"
+                ],
+                "semi": [
+                  "error",
+                  "always"
+                ],
+                "camelcase": "off",
+                "no-useless-constructor": "off",
+                "@typescript-eslint/ban-ts-comment": "off",
+                "no-unused-vars": "off"
+              }
+            }
+
+
+    3 - Adicionando o seguintes script no package.json
+         "lint": "eslint src --ext .ts",
+         "lint:fix":  "eslint src --ext .ts --fix"
+
