@@ -97,3 +97,6 @@ https://efficient-sloth-d85.notion.site/Gloss-rio-DDD-3a81b4df36d348a299ccbc53f3
          "lint": "eslint src --ext .ts",
          "lint:fix":  "eslint src --ext .ts --fix"
 
+
+7 - Adicionando biblioteca fakerJs
+    npm i @faker-js/faker -D
