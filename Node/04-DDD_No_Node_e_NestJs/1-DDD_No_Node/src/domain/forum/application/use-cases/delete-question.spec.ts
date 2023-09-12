@@ -3,6 +3,7 @@ import { DeleteQuestionUseCase } from '@/domain/forum/application/use-cases/dele
 import { makeQuestion } from '@/test/factories/make-question';
 import { UniqueEntityID } from '@/core/entities/unique-entity-id';
 import { expect } from 'vitest';
+import { NotAllowedError } from '@/domain/forum/application/use-cases/errors/not-allowed-error';
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository;
 let sut: DeleteQuestionUseCase;
@@ -37,11 +38,12 @@ describe('Delete Question', () => {
 
     await inMemoryQuestionsRepository.create(newQuestion);
 
-    await expect(() =>
-      sut.execute({
-        authorId: 'author-2',
-        questionId: 'question-1',
-      }),
-    ).rejects.toBeInstanceOf(Error);
+    const result = await sut.execute({
+      questionId: 'question-1',
+      authorId: 'author-2',
+    });
+
+    expect(result.isLeft()).toBe(true);
+    expect(result.value).toBeInstanceOf(NotAllowedError);
   });
 });

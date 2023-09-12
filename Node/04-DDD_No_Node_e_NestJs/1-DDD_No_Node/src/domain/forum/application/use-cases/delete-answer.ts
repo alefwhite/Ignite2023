@@ -27,7 +27,7 @@ export class DeleteAnswerUseCase {
     }
 
     if (authorId !== answer.authorId.toString()) {
-      throw new Error('Not allowed.');
+      return left(new NotAllowedError());
     }
 
     await this.answersRepository.delete(answer);
