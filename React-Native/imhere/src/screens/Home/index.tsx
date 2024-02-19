@@ -1,6 +1,8 @@
 import { Text, TextInput, View, TouchableOpacity, Alert } from 'react-native';
 import { styles } from './styles';
 
+import { Participant } from '../../components/Participant';
+
 export function Home() {
   function handleParticipantAdd () {
     Alert.alert("Participante!", "Adicionado com sucesso!")
@@ -37,6 +39,7 @@ export function Home() {
             </TouchableOpacity>
         </View>
 
+        <Participant />
     </View>
   );
 }
